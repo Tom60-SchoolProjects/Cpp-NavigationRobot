@@ -8,6 +8,7 @@ public:
 	const int larg = 100, haut = 10, vitesse = 2;
 
 	Robot();
+	Robot(int, int);
 
 	int getPosX();
 	int getPosY();

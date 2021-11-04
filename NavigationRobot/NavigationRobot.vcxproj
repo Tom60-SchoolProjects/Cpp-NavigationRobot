@@ -144,10 +144,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chemin.cpp" />
     <ClCompile Include="NavigationRobot.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Orientation.cpp" />
     <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="Deplacement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chemin.h" />
+    <ClInclude Include="Deplacement.h" />
+    <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="Orientation.h" />
     <ClInclude Include="Robot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
