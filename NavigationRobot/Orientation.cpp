@@ -1,17 +1,29 @@
 #include "Orientation.h"
 
-void orientationRobot(Robot robot, sf::Vector2f point)
+void orientationRobot(Robot robot, Point point)
 {
+	float angle = calculAngle(robot.getPos(), point);
+	float diffAngle = angle - robot.getAngle();
+	int pas = 0;
 
+	if (angle >= 0)
+		pas = 1;
+	else
+		pas = -1;
+
+	for (int i; i < diffAngle; i++)
+		robot.setAngle(robot.getAngle() + pas);
 }
 
-void calculAngle(sf::Vector2f vecteurUn, sf::Vector2f vecteurDeux)
+float calculAngle(Point pointUn, Point pointDeux)
 {
 	float angleCosinus;
 
 	angleCosinus =
-		(vecteurUn.x * vecteurDeux.x + vecteurDeux.y + vecteurDeux.y) /
-		(sqrtf(powf(vecteurUn.x, 2) * powf(vecteurUn.y, 2)) *
-		sqrtf(powf(vecteurDeux.x, 2) * powf(vecteurDeux.y, 2))
+		(pointUn.getX() * pointDeux.getX() + pointDeux.getY() + pointDeux.getY()) /
+		(sqrtf(powf(pointUn.getX(), 2) * powf(pointUn.getY(), 2)) *
+		sqrtf(powf(pointDeux.getX(), 2) * powf(pointDeux.getY(), 2))
 	);
+
+	return acosf(angleCosinus);
 }

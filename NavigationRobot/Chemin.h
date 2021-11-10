@@ -1,7 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <math.h>
 #include "Robot.h"
+#include "Obstacle.h"
+#include "Point.h"
 
 bool cheminDirectPossible();
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Point.h"
 
 class Robot
 {
@@ -12,11 +13,14 @@ public:
 
 	int getPosX();
 	int getPosY();
+	Point getPos();
+	float getAngle();
 	sf::RectangleShape getShape();
 	void setPosition(int, int);
-	void setAngle(int);
+	void setAngle(float);
 
 private:
-	int posX, posY;
+	Point point;
+	float angle;
 	sf::RectangleShape robot;
 };

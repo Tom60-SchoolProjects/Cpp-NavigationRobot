@@ -148,6 +148,7 @@
     <ClCompile Include="NavigationRobot.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Orientation.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Deplacement.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Deplacement.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Orientation.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Robot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

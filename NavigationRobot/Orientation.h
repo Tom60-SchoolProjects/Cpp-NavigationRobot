@@ -1,7 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Robot.h";
+#include <math.h>
+#include "Robot.h"
 
 void orientationRobot(Robot, sf::Vector2f);
 

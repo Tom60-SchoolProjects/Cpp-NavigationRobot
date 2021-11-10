@@ -1,7 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Robot.h";
+#include "Point.h"
+#include "Robot.h"
 
 void deplacerRobot(Robot, sf::Vector2f);
 

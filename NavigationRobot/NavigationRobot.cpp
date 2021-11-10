@@ -26,6 +26,8 @@ void navigationRobot()
 		orientationRobot(robotA, chemin);
 		deplacerRobot(robotA, chemin);
 	}
+
+	robotA.setAngle(robotD.getAngle());
 }
 
 int main()

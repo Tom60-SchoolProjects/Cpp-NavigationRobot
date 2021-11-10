@@ -1,10 +1,32 @@
-#include <math.h>
 #include "Chemin.h"
-#include "Obstacle.h"
 
 bool cheminDirectPossible(sf::Vector2f possitionUn, sf::Vector2f possitionDeux, Obstacle obstacle)
 {
 	
+}
+
+float* equationDeDroit(Point pointUn, Point pointDeux)
+{
+	int A[2][2]{
+		{ pointUn.getX(), 1},
+		{ pointDeux.getX(), 1}
+	};
+	int B[2] = { pointUn.getY(), pointDeux.getY() };
+	float invA[2][2];
+	float C[2];
+	float detA = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+
+	if (detA != 0)
+	{
+		invA[0][0] = A[1][1] * 1 / detA;
+		invA[0][1] = A[1][0] * (-1) * 1 / detA;
+		invA[1][0] = A[0][1] * (-1) * 1 / detA;
+		invA[1][1] = A[0][0] * 1 / detA;
+		C[0] = invA[0][0] * B[0] + invA[0][1] * B[1];
+		C[1] = invA[1][0] * B[0] + invA[1][1] * B[1];
+	}
+
+	return C;
 }
 
 int calculDistance(sf::Vector2f possitionUn, sf::Vector2f possitionDeux)
@@ -21,8 +43,7 @@ sf::Vector2f* calculCheminOptimal(sf::Vector2f possitionUn, sf::Vector2f possiti
 
 	if (cheminDirectPossible(possitionUn, possitionDeux, obstacle))
 	{
-		sf::Vector2f retour[1] = { possitionDeux };
-		return retour;
+		return &possitionDeux;
 	}
 	else
 	{

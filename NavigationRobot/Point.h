@@ -2,11 +2,12 @@
 
 class Point
 {
+	int x_;
+	int y_;
+
 public:
 	Point(int, int);
 
-	int getPosX();
-	int getPosY();
-private:
-	int posX, posY;
+	int getX();
+	int getY();
 };

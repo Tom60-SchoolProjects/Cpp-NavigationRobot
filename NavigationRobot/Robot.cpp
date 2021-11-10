@@ -17,12 +17,22 @@ Robot::Robot(int x, int y)
 
 int Robot::getPosX()
 {
-	return posX;
+	return point.getX();
 }
 
 int Robot::getPosY()
 {
-	return posY;
+	return point.getY();
+}
+
+Point Robot::getPos()
+{
+	return point;
+}
+
+float Robot::getAngle()
+{
+	return angle;
 }
 
 sf::RectangleShape Robot::getShape()
@@ -35,4 +45,10 @@ void Robot::setPosition(int x, int y)
 	posX = x;
 	posY = y;
 	robot.setPosition(posX, posY);
+}
+
+void Robot::setAngle(float angle)
+{
+	Robot::angle = angle;
+	robot.setRotation(angle);
 }
