@@ -27,7 +27,7 @@ bool cheminDirectPossible(Droite droiteUn, Droite droiteDeux, Obstacle obstacle)
 	if(droiteUn.vertical && droiteDeux.vertical || droiteUn.a == 0 && droiteDeux.a == 0 || droiteUn.a == droiteDeux.a)
 		return true;
 	if (droiteUn.a == 0 && droiteDeux.vertical)
-		return !(droiteDeux.b >= (vecObsUn.x, vecObsDeux.x) && droiteDeux.b <= fmax(vecObsUn.x, vecObsDeux.x) && droiteUn.b >= fmin(vecObsUn.y, vecObsDeux.y) && droiteUn.b <= fmax(vecObsUn.y, vecObsDeux.y));
+		return !(droiteDeux.b >= fmin(vecObsUn.x, vecObsDeux.x) && droiteDeux.b <= fmax(vecObsUn.x, vecObsDeux.x) && droiteUn.b >= fmin(vecObsUn.y, vecObsDeux.y) && droiteUn.b <= fmax(vecObsUn.y, vecObsDeux.y));
 	if (droiteDeux.a == 0 && droiteUn.vertical)
 		return !(droiteUn.b >= fmin(vecObsUn.x, vecObsDeux.x) && droiteUn.b <= fmax(vecObsUn.x, vecObsDeux.x) && droiteDeux.b >= fmin(vecObsUn.y, vecObsDeux.y) && droiteDeux.b <= fmax(vecObsUn.y, vecObsDeux.y));
 	if (droiteUn.vertical)
