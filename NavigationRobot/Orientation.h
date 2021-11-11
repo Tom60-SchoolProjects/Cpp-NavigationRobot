@@ -4,6 +4,6 @@
 #include <math.h>
 #include "Robot.h"
 
-void orientationRobot(Robot, sf::Vector2f);
+void orientationRobot(Robot, Point);
 
-void calculAngle(sf::Vector2f);
+//void calculAngle(sf::Vector2f);

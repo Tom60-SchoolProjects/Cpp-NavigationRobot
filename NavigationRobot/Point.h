@@ -2,12 +2,13 @@
 
 class Point
 {
-	int x_;
-	int y_;
+	float x_;
+	float y_;
 
 public:
-	Point(int, int);
+	Point();
+	Point(float, float);
 
-	int getX();
-	int getY();
+	float getX();
+	float getY();
 };

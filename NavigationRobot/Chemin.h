@@ -5,9 +5,12 @@
 #include "Robot.h"
 #include "Obstacle.h"
 #include "Point.h"
+#include "Droite.h"
 
-bool cheminDirectPossible();
+//bool cheminDirectPossible(Droite, Droite, Obstacle);
 
-int calculDistance(sf::Vector2f, sf::Vector2f);
+//Droite equationDeDroit(Point, Point);
 
-sf::Vector2f* calculCheminOptimal(Robot, Robot, Obstacle);
+//int calculDistance(Point, Point);
+
+Point* calculCheminOptimal(Point, Point, Obstacle);

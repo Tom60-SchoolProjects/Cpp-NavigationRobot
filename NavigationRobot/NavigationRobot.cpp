@@ -15,19 +15,26 @@ sf::RenderWindow window(sf::VideoMode(420, 420), "Casse-Briques");
 
 void navigationRobot()
 {
-	sf::Vector2f* chemins;
+	Point* chemins;
 
-	chemins = calculCheminOptimal(robotA, robotD, obstacle);
+	chemins = calculCheminOptimal(robotA.getPos(), robotD.getPos(), obstacle);
 
 	for (int i = 0; i > sizeof(chemins) / sizeof(sf::Vector2f); i++)
 	{
-		sf::Vector2f chemin = chemins[i];
+		Point chemin = chemins[i];
 
 		orientationRobot(robotA, chemin);
 		deplacerRobot(robotA, chemin);
 	}
 
 	robotA.setAngle(robotD.getAngle());
+}
+
+void update()
+{
+	window.draw(robotD.getShape());
+	window.draw(robotA.getShape());
+	window.draw(obstacle.getShape(), 2, sf::Lines);
 }
 
 int main()
@@ -39,12 +46,12 @@ int main()
 
 	window.setVisible(false);
 
-	std::cout << "Entrer la position de départ du robot" << std::endl;
+	std::cout << "Entrer la position de depart du robot" << std::endl;
 	std::cout << "X: "; std::cin >> x;
 	std::cout << "Y: "; std::cin >> y;
 	robotD.setPosition(x, y);
 
-	std::cout << "Entrer la position d'arrivée du robot" << std::endl;
+	std::cout << "Entrer la position d'arrivee du robot" << std::endl;
 	std::cout << "X: "; std::cin >> x;
 	std::cout << "Y: "; std::cin >> y;
 	robotA.setPosition(x, y);
@@ -57,10 +64,10 @@ int main()
 	std::cout << "Y2: "; std::cin >> y;
 	obstPoint2 = sf::Vector2f(x, y);
 
-	std::cout << "Démarage de la visualisation...";
+	std::cout << "Demarage de la visualisation..." << std::endl;
 
-	window.setVisible(false);
 	navigationRobot();
+	window.setVisible(true);
 
 	while (window.isOpen())
 	{
@@ -79,7 +86,7 @@ int main()
 
 		if (clock.getElapsedTime().asMilliseconds() > 10)
 		{
-			//update();
+			update();
 			clock.restart();
 		}
 	}

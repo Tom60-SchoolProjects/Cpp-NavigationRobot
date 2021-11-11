@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chemin.cpp" />
+    <ClCompile Include="Droite.cpp" />
     <ClCompile Include="NavigationRobot.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Orientation.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Chemin.h" />
     <ClInclude Include="Deplacement.h" />
+    <ClInclude Include="Droite.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Orientation.h" />
     <ClInclude Include="Point.h" />

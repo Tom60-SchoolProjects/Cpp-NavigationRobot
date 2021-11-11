@@ -17,16 +17,17 @@ Robot::Robot(int x, int y)
 
 int Robot::getPosX()
 {
-	return point.getX();
+	return posX;
 }
 
 int Robot::getPosY()
 {
-	return point.getY();
+	return posY;
 }
 
 Point Robot::getPos()
 {
+	Point point { posX, posY };
 	return point;
 }
 

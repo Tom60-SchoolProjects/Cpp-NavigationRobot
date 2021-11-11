@@ -4,8 +4,8 @@
 #include "Point.h"
 #include "Robot.h"
 
-void deplacerRobot(Robot, sf::Vector2f);
+void deplacerRobot(Robot, Point);
 
-void calculVecteur(sf::Vector2f, sf::Vector2f);
+//sf::Vector2f calculVecteur(Point, Point);
 
-void calculVitesse(sf::Vector2f, sf::Vector2f);
+//void calculVitesse(Point, Point, Point, int*);

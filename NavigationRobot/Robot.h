@@ -20,7 +20,7 @@ public:
 	void setAngle(float);
 
 private:
-	Point point;
+	float posX, posY;
 	float angle;
 	sf::RectangleShape robot;
 };
