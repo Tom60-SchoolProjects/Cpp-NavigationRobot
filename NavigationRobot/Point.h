@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Point
 {
 	float x_;
@@ -8,6 +10,8 @@ class Point
 public:
 	Point();
 	Point(float, float);
+
+	void print();
 
 	float getX();
 	float getY();

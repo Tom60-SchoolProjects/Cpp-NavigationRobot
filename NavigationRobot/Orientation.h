@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <iostream>
 #include <math.h>
-#include "Robot.h"
+#include "Scene.h"
 
-void orientationRobot(Robot, Point);
+void orientationRobot(Robot*, Point, Scene*);
 
 //void calculAngle(sf::Vector2f);

@@ -1,41 +1,38 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include <windows.h>
+#include "Scene.h"
 #include "Robot.h"
 #include "Obstacle.h"
 #include "Chemin.h"
 #include "Orientation.h"
 #include "Deplacement.h"
 
-Robot robotD;
-Robot robotA;
-Obstacle obstacle;
-sf::RenderWindow window(sf::VideoMode(420, 420), "Casse-Briques");
-
+Scene screen;
 
 void navigationRobot()
 {
-	Point* chemins;
+	std::vector<Point> chemins;
 
-	chemins = calculCheminOptimal(robotA.getPos(), robotD.getPos(), obstacle);
+	chemins = calculCheminOptimal(screen.robotD.getPos(), screen.robotA.getPos(), screen.obstacle);
 
-	for (int i = 0; i > sizeof(chemins) / sizeof(sf::Vector2f); i++)
+	for (Point chemin : chemins) //(int i = 0; i > sizeof(chemins) / sizeof(Point); i++)
 	{
-		Point chemin = chemins[i];
+		//Point chemin = chemins[i];
 
-		orientationRobot(robotA, chemin);
-		deplacerRobot(robotA, chemin);
+		orientationRobot(&screen.robotD, chemin, &screen);
+		deplacerRobot(&screen.robotD, chemin, &screen);
+		std::cout << "Fin du chemin";
 	}
 
-	robotA.setAngle(robotD.getAngle());
+	screen.robotD.setAngle(screen.robotA.getAngle());
+	screen.Update();
 }
 
-void update()
+/*void update()
 {
-	window.draw(robotD.getShape());
+	/*window.draw(robotD.getShape());
 	window.draw(robotA.getShape());
-	window.draw(obstacle.getShape(), 2, sf::Lines);
-}
+	window.draw(obstacle.getShape(), 2, sf::Lines);*//*
+}*/
 
 int main()
 {
@@ -44,17 +41,17 @@ int main()
 	sf::Clock clock;
 	int x , y;
 
-	window.setVisible(false);
+	screen.window.setVisible(false);
 
 	std::cout << "Entrer la position de depart du robot" << std::endl;
 	std::cout << "X: "; std::cin >> x;
 	std::cout << "Y: "; std::cin >> y;
-	robotD.setPosition(x, y);
+	screen.robotD.setPosition(x, y);
 
 	std::cout << "Entrer la position d'arrivee du robot" << std::endl;
 	std::cout << "X: "; std::cin >> x;
 	std::cout << "Y: "; std::cin >> y;
-	robotA.setPosition(x, y);
+	screen.robotA.setPosition(x, y);
 
 	std::cout << "Entrer la position de l'obstacle du robot" << std::endl;
 	std::cout << "X1: "; std::cin >> x;
@@ -63,19 +60,23 @@ int main()
 	std::cout << "X2: "; std::cin >> x;
 	std::cout << "Y2: "; std::cin >> y;
 	obstPoint2 = sf::Vector2f(x, y);
+	screen.obstacle.setPosition(obstPoint1, obstPoint2);
 
 	std::cout << "Demarage de la visualisation..." << std::endl;
 
-	navigationRobot();
-	window.setVisible(true);
+	screen.window.setVisible(true);
+	// Init draw
+	screen.Update();
 
-	while (window.isOpen())
+	navigationRobot();
+
+	while (screen.window.isOpen())
 	{
 		sf::Event event;
-		while (window.pollEvent(event))
+		while (screen.window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				window.close();
+				screen.window.close();
 
 			if (event.type == sf::Event::KeyPressed)
 			{
@@ -86,9 +87,9 @@ int main()
 
 		if (clock.getElapsedTime().asMilliseconds() > 10)
 		{
-			update();
+			//update();
 			clock.restart();
 		}
 	}
-	window.close();
+	screen.window.close();
 }

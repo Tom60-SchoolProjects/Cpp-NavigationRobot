@@ -12,5 +12,10 @@ Point::Point(float x, float y)
 	y_ = y;
 }
 
+void Point::print()
+{
+	std::cout << "Point: { X: " << x_ << ", Y: " << y_ << " }";
+}
+
 float Point::getX() { return x_;  }
 float Point::getY() { return y_; }

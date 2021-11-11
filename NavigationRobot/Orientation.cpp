@@ -13,11 +13,13 @@ float calculAngle(Point pointUn, Point pointDeux)
 	return acosf(angleCosinus);
 }
 
-void orientationRobot(Robot *robot, Point point)
+void orientationRobot(Robot *robot, Point point, Scene* window)
 {
 	float angle = calculAngle(robot->getPos(), point);
 	float diffAngle = angle - robot->getAngle();
 	int pas = 0;
+
+	std::cout << "Orientation du robot a " << angle << " degre" << std::endl;
 
 	if (angle >= 0)
 		pas = 1;
@@ -25,5 +27,8 @@ void orientationRobot(Robot *robot, Point point)
 		pas = -1;
 
 	for (int i = 0; i < diffAngle; i++)
+	{
 		robot->setAngle(robot->getAngle() + pas);
+		window->Update();
+	}
 }

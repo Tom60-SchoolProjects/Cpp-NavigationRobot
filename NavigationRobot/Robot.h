@@ -1,12 +1,13 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+//#include "Scene.h"
 #include "Point.h"
 
 class Robot
 {
 public:
-	const int larg = 100, haut = 10, vitesse = 2;
+	const int larg = 40, haut = 24;
 
 	Robot();
 	Robot(int, int);

@@ -13,4 +13,4 @@
 
 //int calculDistance(Point, Point);
 
-Point* calculCheminOptimal(Point, Point, Obstacle);
+std::vector<Point> calculCheminOptimal(Point, Point, Obstacle);

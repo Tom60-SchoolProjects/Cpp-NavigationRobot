@@ -152,6 +152,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Deplacement.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chemin.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Orientation.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Robot.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

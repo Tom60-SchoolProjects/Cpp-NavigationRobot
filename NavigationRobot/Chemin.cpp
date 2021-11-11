@@ -67,7 +67,7 @@ int calculDistance(Point possitionUn, Point possitionDeux)
 	);
 }
 
-Point* calculCheminOptimal(Point possitionUn, Point possitionDeux, Obstacle obstacle)
+std::vector<Point> calculCheminOptimal(Point possitionUn, Point possitionDeux, Obstacle obstacle)
 {
 	int distanceUn, distanceDeux;
 	sf::Vector2f vecUn = obstacle.getPointOne();
@@ -83,7 +83,9 @@ Point* calculCheminOptimal(Point possitionUn, Point possitionDeux, Obstacle obst
 	// Verif
 	if (cheminDirectPossible(droiteRobots, droiteObstacle, obstacle))
 	{
-		return &possitionDeux;
+		std::cout << "Le robot peut aller directement a l'arrivee sans rencontres d'obstacle." << std::endl;
+		std::vector<Point> vecUn = { possitionDeux };
+		return vecUn;
 	}
 	else
 	{
@@ -92,13 +94,14 @@ Point* calculCheminOptimal(Point possitionUn, Point possitionDeux, Obstacle obst
 		distanceDeux = calculDistance(possitionUn, pointObstacleDeux) +
 			calculDistance(pointObstacleDeux, possitionDeux);
 
-		Point retour[2] = {
+		std::vector<Point> vecDeux = {
 			possitionDeux,
 			(distanceUn < distanceDeux ? pointObstacleUn : pointObstacleDeux)
 		};
 		
-		return retour;
+		return vecDeux;
 	}
 
-	return 0;
+	std::vector<Point> vecZero;
+	return vecZero;
 }
